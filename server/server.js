@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
     const data = {name: 'Mario'};
     res.render('index', data);
 });
-*/
+
 
 app.get('/user', (req, res) => {
     teammembers = []
@@ -57,6 +57,21 @@ app.get('/user', (req, res) => {
             res.render('user', data);
         });
 });
+*/
+
+app.post('/subtractIngredient', async(req, res) => {
+    try{
+        ingredient  = req.body;
+        const subtract = await pool.query(
+            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[ingredient]
+        );
+        //res.json();
+
+    }catch(err){
+        console.log(err);
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
