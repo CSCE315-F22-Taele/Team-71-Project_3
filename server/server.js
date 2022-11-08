@@ -61,9 +61,10 @@ app.get('/user', (req, res) => {
 
 app.post('/subtractIngredient', async(req, res) => {
     try{
+        const i  = "BACON"
         ingredient  = req.body;
         const subtract = await pool.query(
-            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[ingredient]
+            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[i]
         );
         //res.json();
 
