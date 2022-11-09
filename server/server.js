@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
     const data = {name: 'Mario'};
     res.render('index', data);
 });
-
+*/
 
 app.get('/user', (req, res) => {
     teammembers = []
@@ -57,7 +57,7 @@ app.get('/user', (req, res) => {
             res.render('user', data);
         });
 });
-*/
+
 
 app.post('/subtractIngredient', async(req, res) => {
     try{
