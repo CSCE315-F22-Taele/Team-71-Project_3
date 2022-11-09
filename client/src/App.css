@@ -1,0 +1,18 @@
+.Server{
+    background-color: lightcyan;
+}
+.item_box{
+    text-align: center;
+}
+
+.button{
+    padding: 35px;
+    margin: 10px;
+    text-decoration: underline;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.button:hover{
+    background-color: lightcoral;
+}
