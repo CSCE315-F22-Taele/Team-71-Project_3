@@ -18,17 +18,21 @@ function App() {
     <div className="Server">
       <h1>Server</h1>
       <div className="item_box">
-        <button type="button" onClick={handleClick}>
+        <button type="button" onClick={handleClick} className="button">
           Subtract Ingredient
         </button>
-        <button>Item 1</button>
-        <button>Item 2</button>
-        <button>Item 3</button>
-        <button>Item 4</button>
-        <button>Item 5</button>
-        <button>Item 6</button>
-        <button>Item 7</button>
-        <button>Item 8</button>
+        <button className="button">Item 1</button>
+        <button className="button">Item 2</button>
+        <button className="button">Item 3</button>
+        <button className="button">Item 4</button>
+        <button className="button">Item 5</button>
+        <button className="button">Item 6</button>
+        <button className="button">Item 7</button>
+        <button className="button">Item 8</button>
+        <button className="button">Item 9</button>
+        <button className="button">Item 10</button>
+        <button className="button">Item 11</button>
+        <button className="button">Item 12</button>
       </div>
     </div>
   );
