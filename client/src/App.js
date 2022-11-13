@@ -37,18 +37,18 @@ class App extends React.Component{
     };
 
     const background={
+      
       backgroundImage: "url(/cfa.jpg)",
       height:'100vh',
       marginTop:'-70px',
       fontSize:'50px',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-  };
+    };
+
   return (
     <div style={background} >
-      <div className = "CFAheader">
-        <h1> Chick-fil-a </h1>
-      </div>
+        <h1>Server</h1>
        <div className="Server">
           <div className="item_box">
             <button type="button" onClick={handleClick} className="button">
