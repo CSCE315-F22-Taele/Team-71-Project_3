@@ -10,10 +10,11 @@
     text-decoration: underline;
     font-size: 20px;
     border-radius: 15px;
+    background-color: red;
 }
 
 .button:hover{
-    background-color: lightcoral;
+    background-color: ;
 }
 .CFAheader{
     margin-bottom: 0px;
