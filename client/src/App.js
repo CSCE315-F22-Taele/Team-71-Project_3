@@ -2,7 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 //import styled from "styled-components";
 
-import logo from "../images/cfa.JPG";
+import logo from "./image/cfa.JPG";
 
 
 class App extends React.Component{
