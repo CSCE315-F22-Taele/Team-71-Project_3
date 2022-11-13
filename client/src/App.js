@@ -46,7 +46,9 @@ class App extends React.Component{
   };
   return (
     <div style={background} >
-        <h1>Server</h1>
+      <div className = "CFAheader">
+        <h1> Chick-fil-a </h1>
+      </div>
        <div className="Server">
           <div className="item_box">
             <button type="button" onClick={handleClick} className="button">

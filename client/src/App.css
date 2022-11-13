@@ -4,6 +4,7 @@
 }
 
 .button{
+    margin-top: 0px;
     padding: 35px;
     margin: 10px;
     text-decoration: underline;
@@ -14,9 +15,9 @@
 .button:hover{
     background-color: lightcoral;
 }
-.Server{
+.CFAheader{
     margin-bottom: 0px;
-    font-size: 25px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
+    color: red;
 }
