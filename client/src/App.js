@@ -2,6 +2,8 @@ import "./App.css";
 import React, { Component } from "react";
 //import styled from "styled-components";
 
+import logo from "../images/cfa.JPG";
+
 
 class App extends React.Component{
   constructor(props){
@@ -34,6 +36,7 @@ class App extends React.Component{
       
     };
     return (
+      <div className="home" style={{ backgroundImage: `url(${logo})` }}>
       <div className="Server">
           <h1>Server</h1>
           <div className="item_box">
@@ -56,6 +59,7 @@ class App extends React.Component{
             <button className="button">Item 14</button>
           </div>
         </div>
+      </div>
     );
   }
 }
