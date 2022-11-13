@@ -36,8 +36,9 @@ class App extends React.Component{
       
     };
     return (
-      <div className="home" style={{ backgroundImage: `url(${logo})` }}>
       <div className="Server">
+          <div style={{ backgroundImage: `url(${logo})` }}>
+
           <h1>Server</h1>
           <div className="item_box">
             <button type="button" onClick={handleClick} className="button">
