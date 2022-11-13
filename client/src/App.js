@@ -2,7 +2,6 @@ import "./App.css";
 import React, { Component } from "react";
 //import styled from "styled-components";
 
-import logo from "./image/cfa.JPG";
 
 
 class App extends React.Component{
@@ -24,6 +23,7 @@ class App extends React.Component{
     };
     fetch('/subtractIngredient', requestOptions)
   }
+  
 
   render(){
     const handleClick = () => {
@@ -35,11 +35,19 @@ class App extends React.Component{
       fetch('/subtractIngredient', requestOptions)
       
     };
-    return (
-      <div className="Server">
-          <div style={{ backgroundImage: `url(${logo})` }}>
 
-          <h1>Server</h1>
+    const background={
+      backgroundImage: "url(/cfa.jpg)",
+      height:'100vh',
+      marginTop:'-70px',
+      fontSize:'50px',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+  };
+  return (
+    <div style={background} >
+        <h1>Server</h1>
+       <div className="Server">
           <div className="item_box">
             <button type="button" onClick={handleClick} className="button">
               Subtract Ingredient
@@ -60,8 +68,8 @@ class App extends React.Component{
             <button className="button">Item 14</button>
           </div>
         </div>
-      </div>
-    );
+    </div>
+  );
   }
 }
 export default App;
