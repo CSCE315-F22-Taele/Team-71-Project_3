@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
+import axios from "axios";
 //import styled from "styled-components";
 
 
@@ -9,35 +10,23 @@ class App extends React.Component{
     super(props);
   
   }
-  //Button = styled.button`
-  //background-color: blue;
-//`;
 
- // Container = styled.div``;
-  componentDidMount() {
-    // Simple POST request with a JSON body using fetch
-    const requestOptions = {
-        method: 'POST',
-        //headers: { 'Content-Type': 'application/json' },
-        //body: JSON.stringify({ title: 'React POST Request Example' })
-    };
-    fetch('/subtractIngredient', requestOptions)
-  }
-  
 
   render(){
+    const requestOptions = {
+      method: 'POST',
+      body: {ingredient: 'BUNS'}
+    };
+    
     const handleClick = () => {
-      const requestOptions = {
-        method: 'POST',
-        //headers: { 'Content-Type': 'application/json' },
-        body: {ingredient: 'BUNS' }
-      };
-      fetch('/subtractIngredient', requestOptions)
-      
+      console.log(requestOptions.body.ingredient);
+      //fetch('/subtractIngredient', requestOptions);
+      axios.post('http://localhost:3001/subtractIngredient',requestOptions).then((res) => {
+        this.setState({ total: res.data });
+      }).catch((error) => {console.log(error.response)});
     };
 
     const background={
-      
       backgroundImage: "url(/cfa2.jpg)",
       height:'100vh',
       marginTop:'-70px',
