@@ -38,7 +38,7 @@ class App extends React.Component{
 
     const background={
       
-      backgroundImage: "url(/cfa.jpg)",
+      backgroundImage: "url(/cfa2.jpg)",
       height:'100vh',
       marginTop:'-70px',
       fontSize:'50px',
