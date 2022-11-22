@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
 import axios from "axios";
+
 //import styled from "styled-components";
 
 
@@ -15,13 +16,13 @@ class App extends React.Component{
   render(){
     const requestOptions = {
       method: 'POST',
-      body: {ingredient: 'BUNS'}
+      body: {'ingredient': 'BUNS'}
     };
     
     const handleClick = () => {
       console.log(requestOptions.body.ingredient);
       //fetch('/subtractIngredient', requestOptions);
-      axios.post('http://localhost:3001/subtractIngredient',requestOptions).then((res) => {
+      axios.post('http://localhost:3001/subtractIngredient',requestOptions.body).then((res) => {
         this.setState({ total: res.data });
       }).catch((error) => {console.log(error.response)});
     };

@@ -66,19 +66,15 @@ app.get('/user', (req, res) => {
 
 
 app.post('/subtractIngredient', async(req, res) => {
-    
     try{
-        i  = "EGGS"
-        i2 = "BACON"
         ingredient  = req.body.ingredient;
+        //console.log(req.body);
+        //const ig = req;
         console.log(ingredient);
-        
         const subtract = await pool.query(
-            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[i]
+            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[ingredient]
         );
-        const subtract2 = await pool.query(
-            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[i]
-        );
+        
         //res.json();
     }catch(err){
         console.log(err);
