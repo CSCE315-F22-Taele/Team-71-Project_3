@@ -13,10 +13,16 @@ app.listen(5000, () => {console.log("server running on port 5000")})
 const express = require('express');
 const { Pool } = require('pg');
 const dotenv = require('dotenv').config();
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
 // Create express app
 const app = express();
-const port = 3000;
+const port = 3001;
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({extended: true})); 
+app.use(cors());
 
 // Create pool
 const pool = new Pool({
@@ -60,17 +66,24 @@ app.get('/user', (req, res) => {
 
 
 app.post('/subtractIngredient', async(req, res) => {
+    
     try{
-        const i  = "BACON"
-        ingredient  = req.body;
+        i  = "EGGS"
+        i2 = "BACON"
+        ingredient  = req.body.ingredient;
+        console.log(ingredient);
+        
         const subtract = await pool.query(
             'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[i]
         );
+        const subtract2 = await pool.query(
+            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[i]
+        );
         //res.json();
-
     }catch(err){
         console.log(err);
     }
+    
 });
 
 
