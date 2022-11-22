@@ -6,21 +6,18 @@ import axios from "axios";
 import "./ServerCustomer.css";
 
 const ServerCustomer = () => {
-  const requestOptions = {
+  const ChickenSandwich = {
     method: 'POST',
     body: {
-           'ingredient' : ["MUFFIN", "CHEESE"],
-           'salesInformation' : ["Item1", 10]
+           'ingredient' : ["BUNS", "PICKLE","CHICKEN_B"],
+           'salesInformation' : ["ChickenSandwich", 6]
           }
   };
   
   const handleClick = () => {
-    console.log(requestOptions.body.ingredient);
-    //fetch('/subtractIngredient', requestOptions);
-    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',requestOptions.body).then((res) => {
+    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',ChickenSandwich.body).then((res) => {
       this.setState({ total: res.data });
     }).catch((error) => {console.log(error.response)});
-
   };
 
   return (
@@ -73,6 +70,7 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={handleClick}
       >
         Chicken Sandwhich
       </MuiButton>
@@ -91,7 +89,7 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
-        onClick={handleClick}
+
       >
         Chicken Strips 3ct
       </MuiButton>

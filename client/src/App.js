@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import InStore from "./pages/InStore";
 import ServerCustomer from "./pages/ServerCustomer";
+import Manager from "./pages/Manager";
 import { useEffect } from "react";
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
       <Route path="/" element={<InStore />} />
 
       <Route path="/desktop-1" element={<ServerCustomer />} />
+      <Route path="/desktop-2" element={<Manager />} />
+
     </Routes>
   );
 }

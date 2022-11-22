@@ -80,6 +80,7 @@ app.post('/subtractIngredientAndAddToHistory', async(req, res) => {
         const year = current.getFullYear();
         const month = current.getMonth() + 1;
         const day = current.getDate();
+        
         if(day < 10){
             day = '0' + day;
         }
