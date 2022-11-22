@@ -1,0 +1,41 @@
+.image-2 {
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  top: 21px;
+  left: 27px;
+  width: 290px;
+  height: 131px;
+  background-image: url(../../public/image2@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.find-us-in-store {
+  position: absolute;
+  top: 196px;
+  left: 459px;
+  line-height: 22px;
+  font-weight: 600;
+  display: inline-block;
+}
+.frame-iframe {
+  border: 0;
+  position: absolute;
+  top: 300px;
+  left: 100px;
+  width: 1079px;
+  height: 384px;
+  overflow: hidden;
+}
+.in-store-div {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 832px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
