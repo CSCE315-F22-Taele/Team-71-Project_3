@@ -43,12 +43,6 @@ process.on('SIGINT', function() {
 	 	 	 	
 app.set("view engine", "ejs");
 
-/*
-app.get('/', (req, res) => {
-    const data = {name: 'Mario'};
-    res.render('index', data);
-});
-*/
 
 app.get('/user', (req, res) => {
     teammembers = []
@@ -65,23 +59,43 @@ app.get('/user', (req, res) => {
 });
 
 
-app.post('/subtractIngredient', async(req, res) => {
+app.post('/subtractIngredientAndAddToHistory', async(req, res) => {
     try{
+
         ingredient  = req.body.ingredient;
-        //console.log(req.body);
-        //const ig = req;
-        console.log(ingredient);
-        const subtract = await pool.query(
-            'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[ingredient]
-        );
-        
+        salesInformation = req.body.salesInformation;
+
+        //console.log("INSERT INTO saleshistory3 (item,cost,date) VALUES ('" + salesInformation[0] + "'," + salesInformation[1]+ ",'10/11/11')");
+        //subtracts ingredient command
+        for(let i = 0; i < ingredient.length; i++){
+            const subtractIng = await pool.query(
+                'UPDATE inventory SET inventory_count = inventory_count - 1 WHERE inventory_name = ($1)',[ingredient[i]]
+            );
+      
+        }
+
+        //Adds to sales history
+        //get current date
+        const current = new Date();
+        const year = current.getFullYear();
+        const month = current.getMonth() + 1;
+        const day = current.getDate();
+        if(day < 10){
+            day = '0' + day;
+        }
+        if(month < 10){
+            month = '0' + month;
+        }
+        const format = month + '/' + day + '/' + year;
+
+        //sql command
+        const queryString = "INSERT INTO saleshistory3 (item,cost,date) VALUES ('" + salesInformation[0] + "'," + salesInformation[1]+ ",'" + format + "')";
+        const addToSalesHistory = await pool.query(queryString);
         //res.json();
     }catch(err){
         console.log(err);
     }
-    
 });
-
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

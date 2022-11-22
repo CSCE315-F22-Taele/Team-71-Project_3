@@ -1,9 +1,28 @@
 import { TextField, Button, Button as MuiButton } from "@mui/material";
 import { Textarea } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import "./ServerCustomer.css";
 
 const ServerCustomer = () => {
+  const requestOptions = {
+    method: 'POST',
+    body: {
+           'ingredient' : ["MUFFIN", "CHEESE"],
+           'salesInformation' : ["Item1", 10]
+          }
+  };
+  
+  const handleClick = () => {
+    console.log(requestOptions.body.ingredient);
+    //fetch('/subtractIngredient', requestOptions);
+    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',requestOptions.body).then((res) => {
+      this.setState({ total: res.data });
+    }).catch((error) => {console.log(error.response)});
+
+  };
+
   return (
     <nav className="servercustomer-nav">
       <section className="frame-section" id="cart">
@@ -72,6 +91,7 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={handleClick}
       >
         Chicken Strips 3ct
       </MuiButton>
