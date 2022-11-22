@@ -29,6 +29,24 @@ const Manager = () => {
       >
         View Sales History
       </Button>
+
+      <TextField
+          className="text-areaoutlined-textfield"
+          sx={{ width: 500}}
+          color="primary"
+          variant="outlined"
+          multiline
+          rows={1}
+          placeholder="Inventory or Sales History Appears here"
+          margin="none"
+          disabled
+          inputProps={{
+            style: {
+              height: "600px",
+            },
+          }}
+        />
+
     </nav>
   );
 };

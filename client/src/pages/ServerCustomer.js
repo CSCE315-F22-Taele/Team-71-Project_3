@@ -15,9 +15,12 @@ const ServerCustomer = () => {
   };
   
   const handleClick = () => {
+    //console.log(requestOptions.body.ingredient);
+    //fetch('/subtractIngredient', requestOptions);
     axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',ChickenSandwich.body).then((res) => {
       this.setState({ total: res.data });
     }).catch((error) => {console.log(error.response)});
+
   };
 
   return (
