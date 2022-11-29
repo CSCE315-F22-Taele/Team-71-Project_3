@@ -1,32 +1,28 @@
 import { TextField, Button, Button as MuiButton } from "@mui/material";
 import { Textarea } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import "./ServerCustomer.css";
 
 const ServerCustomer = () => {
   const ChickenSandwich = {
-    method: "POST",
+    method: 'POST',
     body: {
-      ingredient: ["BUNS", "PICKLE", "CHICKEN_B"],
-      salesInformation: ["ChickenSandwich", 6],
-    },
+           'ingredient' : ["BUNS", "PICKLE","CHICKEN_B"],
+           'salesInformation' : ["ChickenSandwich", 6]
+          }
   };
-
+  
   const handleClick = () => {
     //console.log(requestOptions.body.ingredient);
     //fetch('/subtractIngredient', requestOptions);
-    axios
-      .post(
-        "http://localhost:3001/subtractIngredientAndAddToHistory",
-        ChickenSandwich.body
-      )
-      .then((res) => {
-        this.setState({ total: res.data });
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',ChickenSandwich.body).then((res) => {
+      this.setState({ total: res.data });
+    }).catch((error) => {console.log(error.response)});
+
   };
+
   return (
     <nav className="servercustomer-nav">
       <section className="frame-section" id="cart">
@@ -76,7 +72,7 @@ const ServerCustomer = () => {
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
-        onClick={handleClick}
+        size="large"
       >
         Chicken Sandwhich
       </MuiButton>
@@ -95,6 +91,7 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+
       >
         Chicken Strips 3ct
       </MuiButton>
