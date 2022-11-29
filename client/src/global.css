@@ -12,7 +12,8 @@ body {
   --font-noto-sans: "Noto Sans";
 
   /* font sizes */
-  --font-size-base: 49px;
+  --font-size-base: 26px;
+  --font-size-lg: 49px;
 
   /* Colors */
   --color-white: #fff;

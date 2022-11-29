@@ -5,6 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import InStore from "./pages/InStore";
+import Manager from "./pages/Manager";
 import ServerCustomer from "./pages/ServerCustomer";
 import { useEffect } from "react";
 
@@ -26,6 +27,10 @@ function App() {
     //TODO: Update meta titles and descriptions below
     switch (pathname) {
       case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/manager":
         title = "";
         metaDescription = "";
         break;
@@ -52,6 +57,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<InStore />} />
+
+      <Route path="/manager" element={<Manager />} />
 
       <Route path="/desktop-1" element={<ServerCustomer />} />
     </Routes>

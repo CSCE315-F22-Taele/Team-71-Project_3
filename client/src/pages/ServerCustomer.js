@@ -4,6 +4,29 @@ import { Link } from "react-router-dom";
 import "./ServerCustomer.css";
 
 const ServerCustomer = () => {
+  const ChickenSandwich = {
+    method: "POST",
+    body: {
+      ingredient: ["BUNS", "PICKLE", "CHICKEN_B"],
+      salesInformation: ["ChickenSandwich", 6],
+    },
+  };
+
+  const handleClick = () => {
+    //console.log(requestOptions.body.ingredient);
+    //fetch('/subtractIngredient', requestOptions);
+    axios
+      .post(
+        "http://localhost:3001/subtractIngredientAndAddToHistory",
+        ChickenSandwich.body
+      )
+      .then((res) => {
+        this.setState({ total: res.data });
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
   return (
     <nav className="servercustomer-nav">
       <section className="frame-section" id="cart">
@@ -26,7 +49,7 @@ const ServerCustomer = () => {
         />
         <div className="total-cost-div">{`Total Cost: `}</div>
         <Button
-          className="buttoncontained-text"
+          className="buttoncontained-text2"
           sx={{ width: 216 }}
           variant="contained"
           color="success"
@@ -34,7 +57,7 @@ const ServerCustomer = () => {
           Place Order
         </Button>
         <Button
-          className="buttoncontained-text1"
+          className="buttoncontained-text3"
           sx={{ width: 161 }}
           variant="contained"
           color="error"
@@ -42,7 +65,7 @@ const ServerCustomer = () => {
           Cancel Order
         </Button>
         <Textarea
-          className="text-areaoutline-textarea"
+          className="text-areaoutline-textarea1"
           variant="outline"
           w="285px"
           isReadOnly
@@ -53,7 +76,7 @@ const ServerCustomer = () => {
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
-        size="large"
+        onClick={handleClick}
       >
         Chicken Sandwhich
       </MuiButton>
@@ -167,11 +190,12 @@ const ServerCustomer = () => {
       <img className="image-8-icon" alt="" src="../image-8@2x.png" />
       <img className="image-11-icon" alt="" src="../image-11@2x.png" />
       <img className="image-14-icon" alt="" src="../image-14@2x.png" />
-      <nav className="frame-nav" id="Navbar">
+      <nav className="frame-nav1" id="Navbar">
         <img className="image-2-icon" alt="" src="../image2@3x.png" />
-        <Link className="in-store-location" to="/">
+        <Link className="in-store-location1" to="/">
           In store Location
         </Link>
+        <Link className="engineering-a" to="/manager" />
       </nav>
     </nav>
   );

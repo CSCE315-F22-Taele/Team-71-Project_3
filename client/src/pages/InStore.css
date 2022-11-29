@@ -35,7 +35,7 @@
   height: 832px;
   overflow: hidden;
   text-align: left;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   color: var(--color-black);
   font-family: var(--font-roboto);
 }

@@ -2,7 +2,7 @@
   position: absolute;
   top: 69px;
   left: 133px;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   font-family: var(--font-noto-sans);
   color: var(--color-black);
   text-align: left;
@@ -39,18 +39,20 @@
   width: 127px;
   height: 45px;
 }
-.buttoncontained-text {
+.buttoncontained-text2 {
   position: absolute;
   top: 279px;
   left: 90px;
 }
-.buttoncontained-text1 {
+.buttoncontained-text3 {
   position: absolute;
   top: 368px;
   left: 117px;
 }
-.frame-section,
-.text-areaoutline-textarea {
+.frame-section {
+  position: absolute;
+}
+.text-areaoutline-textarea1 {
   position: absolute;
   top: 485px;
   left: 50px;
@@ -123,53 +125,66 @@
   top: 1341px;
   left: 766px;
 }
+.image-3-icon {
+  top: 181px;
+}
 .image-3-icon,
 .image-6-icon,
 .image-9-icon {
   position: absolute;
-  top: 181px;
   left: 102px;
   width: 214px;
   height: 205px;
   object-fit: cover;
 }
-.image-6-icon,
-.image-9-icon {
+.image-6-icon {
   top: 512px;
 }
 .image-9-icon {
   top: 824px;
 }
-.image-10-icon,
+.image-10-icon {
+  position: absolute;
+  width: 214px;
+  height: 205px;
+  object-fit: cover;
+}
+.image-12-icon {
+  top: 1136px;
+  left: 102px;
+}
 .image-12-icon,
 .image-13-icon,
 .image-4-icon,
 .image-7-icon {
   position: absolute;
-  top: 1136px;
-  left: 102px;
   width: 214px;
   height: 205px;
   object-fit: cover;
 }
 .image-10-icon,
-.image-13-icon,
-.image-4-icon,
-.image-7-icon {
+.image-13-icon {
+  left: 434px;
+}
+.image-4-icon {
   top: 181px;
   left: 434px;
 }
-.image-10-icon,
-.image-13-icon,
 .image-7-icon {
+  left: 434px;
   top: 512px;
 }
-.image-10-icon,
-.image-13-icon {
+.image-10-icon {
   top: 824px;
 }
 .image-13-icon {
   top: 1136px;
+}
+.image-11-icon,
+.image-14-icon {
+  left: 749px;
+  width: 214px;
+  height: 205px;
 }
 .image-11-icon,
 .image-14-icon,
@@ -177,25 +192,22 @@
 .image-5-icon,
 .image-8-icon {
   position: absolute;
+  object-fit: cover;
+}
+.image-5-icon,
+.image-8-icon {
   top: 181px;
   left: 749px;
   width: 214px;
   height: 205px;
-  object-fit: cover;
 }
-.image-11-icon,
-.image-14-icon,
-.image-2-icon,
 .image-8-icon {
   top: 512px;
 }
-.image-11-icon,
-.image-14-icon,
-.image-2-icon {
+.image-11-icon {
   top: 824px;
 }
-.image-14-icon,
-.image-2-icon {
+.image-14-icon {
   top: 1136px;
 }
 .image-2-icon {
@@ -204,13 +216,16 @@
   width: 290px;
   height: 131px;
 }
-.in-store-location {
+.engineering-a,
+.in-store-location1 {
   cursor: pointer;
   text-decoration: none;
   position: absolute;
+}
+.in-store-location1 {
   top: 89px;
   left: 397px;
-  font-size: 26px;
+  font-size: var(--font-size-base);
   line-height: 22px;
   font-family: var(--font-roboto);
   color: var(--color-black);
@@ -219,7 +234,17 @@
   width: 194px;
   height: 20px;
 }
-.frame-nav {
+.engineering-a {
+  top: 18px;
+  left: 981px;
+  width: 71px;
+  height: 71px;
+  background-image: url(../../public/engineering@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.frame-nav1 {
   position: absolute;
   top: 0;
   left: 0;
