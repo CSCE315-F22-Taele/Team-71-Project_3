@@ -6,26 +6,7 @@ import axios from "axios";
 import "./ServerCustomer.css";
 import * as menuItems from './MenuItems.js'
 const ServerCustomer = () => {
-  /*
-  const ChickenSandwich = {
-    method: 'POST',
-    body: {
-           'ingredient' : ["BUNS", "PICKLE","CHICKEN_B"],
-           'salesInformation' : ["ChickenSandwich", 6]
-          }
-  };
-  */
- /*
-  const handleClick = (item) => {
-    //console.log(requestOptions.body.ingredient);
-    //fetch('/subtractIngredient', requestOptions);
-    console.log(item.body)
-    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',item.body).then((res) => {
-      this.setState({ total: res.data });
-    }).catch((error) => {console.log(error.response)});
 
-  };
-*/
   function purchaseItem(item){
     console.log(item.body)
     axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',item.body).then((res) => {

@@ -98,3 +98,6 @@ export const ChickenMinis4 = {
            'salesInformation' : ["ChickenMinis4", 4.29]
           }
   };
+
+export const menuArray = [ChickenSandwich,DeluxeChickenSandwich,SpicyChickenSandwich,Nuggets8,Nuggets12,GrilledChickenClub,Strips3,Strips4,GrilledChickenSandwich,GrilledChickenWrap,Biscuits,ChickenMinis4]
+
