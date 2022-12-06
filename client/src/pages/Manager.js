@@ -35,6 +35,16 @@ const Manager = () => {
     });
   };
 
+  const getExcessReport = () => {
+    axios.get('http://localhost:3001/excessReport').then(function(response){
+      var display = ""
+      for(let i = 0; i < response.data.length; i++){
+        display += response.data[i].inventory_name + " " + response.data[i].inventory_count + " " + response.data[i].inventory_original + '\n';
+      }
+      document.getElementById('info').value = display
+    });
+  };
+
   function compareDate(date1, date2){
     var year1 = parseInt(date1.substring(date1.length - 4))
     var year2 = parseInt(date2.substring(date1.length - 4))
@@ -189,7 +199,18 @@ const Manager = () => {
           size="large"
           onClick={getRestockReport}
         >
-          Restock Rreport
+          Restock Report
+        </Button>
+
+        <Button
+          className="button3"
+          sx={{ width: 361 }}
+          variant="contained"
+          color="primary"
+          size="large"
+          onClick={getExcessReport}
+        >
+          Excess Report
         </Button>
 
         <Textarea

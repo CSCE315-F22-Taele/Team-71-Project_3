@@ -185,6 +185,20 @@ app.get('/restockReport', (req, res) => {
 
 });
 
+app.get('/excessReport', (req, res) => {
+    inventory = []
+    pool
+        .query('SELECT * from inventory where cast(inventory_count as decimal)/cast(inventory_original as decimal) > 0.9;')
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++){
+                inventory.push(query_res.rows[i]);
+            }
+            const data = {inventory: inventory};
+            res.send(inventory)
+        });
+});
+
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
