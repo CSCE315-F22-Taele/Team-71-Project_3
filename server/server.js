@@ -76,10 +76,10 @@ app.post('/subtractIngredientAndAddToHistory', async(req, res) => {
 
         //Adds to sales history
         //get current date
-        const current = new Date();
-        const year = current.getFullYear();
-        const month = current.getMonth() + 1;
-        const day = current.getDate();
+        current = new Date();
+        year = current.getFullYear();
+        month = current.getMonth() + 1;
+        day = current.getDate();
         
         if(day < 10){
             day = '0' + day;
@@ -96,6 +96,55 @@ app.post('/subtractIngredientAndAddToHistory', async(req, res) => {
     }catch(err){
         console.log(err);
     }
+});
+
+app.post('/addIngredient', async(req, res) => {
+    try{
+
+        ingredient  = req.body.ingredient;
+
+        //sql command
+        const queryString = "DELETE from inventory WHERE inventory_name = '" + ingredient[0] + "'";
+        const deleteDuplicate = await pool.query(queryString);
+
+        const queryString2 = "INSERT INTO inventory (inventory_name,inventory_count,inventory_original) VALUES ('" + ingredient[0] + "'," + ingredient[1]+ ",'" + 100 + "')";
+        const addIngredient = await pool.query(queryString2);
+        //res.json();
+    }catch(err){
+        console.log(err);
+    }
+});
+
+app.get('/viewInventory', (req, res) => {
+    inventory = []
+    pool
+        .query('SELECT * FROM inventory;')
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++){
+                inventory.push(query_res.rows[i]);
+            }
+            const data = {inventory: inventory};
+            //console.log(inventory)
+            res.send(inventory)
+        });
+
+});
+
+app.get('/viewSalesHistory', (req, res) => {
+    sales = []
+    pool
+        .query('SELECT * FROM saleshistory3;')
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++){
+                sales.push(query_res.rows[i]);
+            }
+            const data = {sales: sales};
+            console.log(sales);
+            res.send(sales)
+            //res.render('inventory_name', data);
+        });
+        
+
 });
 
 app.listen(port, () => {

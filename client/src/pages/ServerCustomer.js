@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./ServerCustomer.css";
-
+import * as menuItems from './MenuItems.js'
 const ServerCustomer = () => {
+  /*
   const ChickenSandwich = {
     method: 'POST',
     body: {
@@ -13,16 +14,25 @@ const ServerCustomer = () => {
            'salesInformation' : ["ChickenSandwich", 6]
           }
   };
-  
-  const handleClick = () => {
+  */
+ /*
+  const handleClick = (item) => {
     //console.log(requestOptions.body.ingredient);
     //fetch('/subtractIngredient', requestOptions);
-    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',ChickenSandwich.body).then((res) => {
+    console.log(item.body)
+    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',item.body).then((res) => {
       this.setState({ total: res.data });
     }).catch((error) => {console.log(error.response)});
 
   };
-
+*/
+  function purchaseItem(item){
+    console.log(item.body)
+    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',item.body).then((res) => {
+      this.setState({ total: res.data });
+    }).catch((error) => {console.log(error.response)});
+  }
+ 
   return (
     <nav className="servercustomer-nav">
       <section className="frame-section" id="cart">
@@ -73,6 +83,8 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={() => purchaseItem(menuItems.ChickenSandwich)}
+        id = "ChickenSandwich"
       >
         Chicken Sandwhich
       </MuiButton>
@@ -82,6 +94,8 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        id = "Nuggets8"
+        onClick={() => purchaseItem(menuItems.Nuggets8)}
       >
         8ct Nggets
       </MuiButton>
@@ -91,6 +105,9 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        id = "Strips3"
+        onClick={() => purchaseItem(menuItems.Strips3)}
+
 
       >
         Chicken Strips 3ct
@@ -101,6 +118,8 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        id = "GrilledChickenWrap"
+        onClick={() => purchaseItem(menuItems.GrilledChickenWrap)}
       >
         Grilled Chicken Cool Wrap
       </MuiButton>
@@ -110,6 +129,9 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        id = "DeluxeChickenSandwich"
+        onClick={() => purchaseItem(menuItems.DeluxeChickenSandwich)}
+
       >
         DLUX Chicken Sandwhich
       </MuiButton>
@@ -119,6 +141,9 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        id = "Nuggets12"
+        onClick={() => purchaseItem(menuItems.Nuggets12)}
+
       >
         12c Nuggets
       </MuiButton>
@@ -128,6 +153,9 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={() => purchaseItem(menuItems.Strips4)}
+        id = "Strips4"
+        
       >
         Chicken Strips 4ct
       </MuiButton>
@@ -137,6 +165,8 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={() => purchaseItem(menuItems.Biscuits)}
+        id = "Biscuits"
       >
         Biscuit
       </MuiButton>
@@ -146,6 +176,8 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={() => purchaseItem(menuItems.SpicyChickenSandwich)}
+        id = "SpicyChickenSandwich" 
       >
         Spicy Chicken Sandwich
       </MuiButton>
@@ -155,6 +187,9 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={() => purchaseItem(menuItems.GrilledChickenClub)}
+
+        id = "GrilledChickenClub"
       >
         Grilled Chicken Club
       </MuiButton>
@@ -164,6 +199,7 @@ const ServerCustomer = () => {
         variant="contained"
         color="primary"
         size="large"
+        onClick={() => purchaseItem(menuItems.GrilledChickenSandwich)}
       >
         Grilled Chicken Sandwhich
       </MuiButton>
@@ -172,6 +208,9 @@ const ServerCustomer = () => {
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
+        id = "ChickenMinis4"
+        onClick={() => purchaseItem(menuItems.ChickenMinis4)}
+
       >
         Chick-n-Minis
       </MuiButton>
