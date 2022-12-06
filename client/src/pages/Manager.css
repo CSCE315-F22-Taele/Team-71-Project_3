@@ -83,9 +83,19 @@
   top: 500px; 
   left: 100px;
 }
+.button2 {
+  position: absolute;
+  top: 800px; 
+  left: 100px;
+}
 .date-picker-div {
   top: 673px;
   left: 98px;
+}
+.date-picker-div2 {
+  position: absolute;
+  top: 675px;
+  left: 350px;
 }
 .manager-nav {
   position: relative;
