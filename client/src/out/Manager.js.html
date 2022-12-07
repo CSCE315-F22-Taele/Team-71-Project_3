@@ -1,4 +1,32 @@
-import React, { useState } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Manager.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Manager.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
 import { Button, TextField, Icon } from "@mui/material";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
@@ -53,10 +81,10 @@ const Manager = () => {
     document.getElementById("itemName").value;
     document.getElementById("itemPrice").value;
     if (
-      document.getElementById("itemName").value != "" &&
+      document.getElementById("itemName").value != "" &amp;&amp;
       document.getElementById("itemPrice").value != ""
     ) {
-      for (let i = 0; i < menuItems.menuArray.length; i++) {
+      for (let i = 0; i &lt; menuItems.menuArray.length; i++) {
         if (
           menuItems.menuArray[i].body.salesInformation[0] ==
           document.getElementById("itemName").value
@@ -71,7 +99,7 @@ const Manager = () => {
     }
 
     let prices = "";
-    for (let i = 0; i < menuItems.menuArray.length; i++) {
+    for (let i = 0; i &lt; menuItems.menuArray.length; i++) {
       prices +=
         menuItems.menuArray[i].body.salesInformation[0] +
         " " +
@@ -112,15 +140,15 @@ const Manager = () => {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <nav className="manager-nav">
-        <nav className="frame-nav" id="Navbar">
-          <Link className="image-21" to="/desktop-1" />
-          <Link className="in-store-location" to="/">
+    &lt;LocalizationProvider dateAdapter={AdapterDateFns}>
+      &lt;nav className="manager-nav">
+        &lt;nav className="frame-nav" id="Navbar">
+          &lt;Link className="image-21" to="/desktop-1" />
+          &lt;Link className="in-store-location" to="/">
             In store Location
-          </Link>
-        </nav>
-        <Button
+          &lt;/Link>
+        &lt;/nav>
+        &lt;Button
           className="buttoncontained-text"
           sx={{ width: 361 }}
           variant="contained"
@@ -129,8 +157,8 @@ const Manager = () => {
           onClick={getInventoryOnClick}
         >
           View Inventory
-        </Button>
-        <Button
+        &lt;/Button>
+        &lt;Button
           className="button"
           sx={{ width: 361 }}
           variant="contained"
@@ -139,8 +167,8 @@ const Manager = () => {
           onClick={getMenuItemsPrice}
         >
           Change/View Menu and Prices
-        </Button>
-        <Button
+        &lt;/Button>
+        &lt;Button
           className="buttoncontained-text2"
           sx={{ width: 361 }}
           variant="contained"
@@ -149,29 +177,29 @@ const Manager = () => {
           onClick={addIngredientOnClick}
         >
           Add Ingredient
-        </Button>
-        <Textarea
+        &lt;/Button>
+        &lt;Textarea
           className="text-areaoutline-textarea2"
           id="ingredientName"
           variant="outline"
           w="300px"
           placeholder="Enter Name Of New Ingredient"
         />
-        <Textarea
+        &lt;Textarea
           className="text-areaoutline-textarea3"
           id="ingredientAmount"
           variant="outline"
           w="300px"
           placeholder="Enter Amount"
         />
-        <Textarea
+        &lt;Textarea
           className="text-areaoutline-textarea4"
           id="itemName"
           variant="outline"
           w="150px"
           placeholder="Enter Item Name"
         />
-        <Textarea
+        &lt;Textarea
           className="text-areaoutline-textarea5"
           id="itemPrice"
           variant="outline"
@@ -179,7 +207,7 @@ const Manager = () => {
           placeholder="Enter Item Price"
         />
 
-        <Button
+        &lt;Button
           className="buttoncontained-text1"
           sx={{ width: 361 }}
           variant="contained"
@@ -187,8 +215,8 @@ const Manager = () => {
           size="large"
         >
           View Sales History
-        </Button>
-        <Textarea
+        &lt;/Button>
+        &lt;Textarea
           className="text-areaoutline-textarea"
           id="info"
           variant="outline"
@@ -196,15 +224,15 @@ const Manager = () => {
           placeholder="information box"
           isReadOnly
         />
-        <div className="date-picker-div">
-          <DatePicker
+        &lt;div className="date-picker-div">
+          &lt;DatePicker
             label="Date picker"
             value={datePickerDateTimePickerValue}
             onChange={(newValue) => {
               setDatePickerDateTimePickerValue(newValue);
             }}
             renderInput={(params) => (
-              <TextField
+              &lt;TextField
                 {...params}
                 color="primary"
                 variant="standard"
@@ -214,10 +242,33 @@ const Manager = () => {
               />
             )}
           />
-        </div>
-      </nav>
-    </LocalizationProvider>
+        &lt;/div>
+      &lt;/nav>
+    &lt;/LocalizationProvider>
   );
 };
 
 export default Manager;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#InStore">InStore</a></li><li><a href="global.html#Manager">Manager</a></li><li><a href="global.html#ServerCustomer">ServerCustomer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 06 2022 16:12:31 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

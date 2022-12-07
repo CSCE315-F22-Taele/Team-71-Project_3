@@ -1,4 +1,32 @@
-import { TextField, Button, Button as MuiButton } from "@mui/material";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ServerCustomer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ServerCustomer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { TextField, Button, Button as MuiButton } from "@mui/material";
 import { Textarea } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -37,15 +65,15 @@ const ServerCustomer = () => {
   }
 
   return (
-    <nav className="servercustomer-nav">
-      <section className="frame-section" id="cart">
-        <div className="your-cart-div">Your Cart</div>
-        <img
+    &lt;nav className="servercustomer-nav">
+      &lt;section className="frame-section" id="cart">
+        &lt;div className="your-cart-div">Your Cart&lt;/div>
+        &lt;img
           className="icon-shopping-cart"
           alt=""
           src="../-icon-shopping-cart.svg"
         />
-        <TextField
+        &lt;TextField
           className="text-areaoutlined-textfield"
           sx={{ width: 138 }}
           color="primary"
@@ -56,31 +84,31 @@ const ServerCustomer = () => {
           margin="none"
           disabled
         />
-        <div className="total-cost-div">{`Total Cost: `}</div>
-        <Button
+        &lt;div className="total-cost-div">{`Total Cost: `}&lt;/div>
+        &lt;Button
           className="buttoncontained-text2"
           sx={{ width: 216 }}
           variant="contained"
           color="success"
         >
           Place Order
-        </Button>
-        <Button
+        &lt;/Button>
+        &lt;Button
           className="buttoncontained-text3"
           sx={{ width: 161 }}
           variant="contained"
           color="error"
         >
           Cancel Order
-        </Button>
-        <Textarea
+        &lt;/Button>
+        &lt;Textarea
           className="text-areaoutline-textarea1"
           variant="outline"
           w="285px"
           isReadOnly
         />
-      </section>
-      <MuiButton
+      &lt;/section>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton"
         sx={{ width: 181 }}
         variant="contained"
@@ -90,8 +118,8 @@ const ServerCustomer = () => {
         id="ChickenSandwich"
       >
         Chicken Sandwhich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton1"
         sx={{ width: 181 }}
         variant="contained"
@@ -101,8 +129,8 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.Nuggets8)}
       >
         8ct Nggets
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton2"
         sx={{ width: 181 }}
         variant="contained"
@@ -112,8 +140,8 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.Strips3)}
       >
         Chicken Strips 3ct
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton3"
         sx={{ width: 181 }}
         variant="contained"
@@ -123,8 +151,8 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.GrilledChickenWrap)}
       >
         Grilled Chicken Cool Wrap
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton4"
         sx={{ width: 181 }}
         variant="contained"
@@ -134,8 +162,8 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.DeluxeChickenSandwich)}
       >
         DLUX Chicken Sandwhich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton5"
         sx={{ width: 181 }}
         variant="contained"
@@ -145,8 +173,8 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.Nuggets12)}
       >
         12c Nuggets
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton6"
         sx={{ width: 181 }}
         variant="contained"
@@ -156,8 +184,8 @@ const ServerCustomer = () => {
         id="Strips4"
       >
         Chicken Strips 4ct
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton7"
         sx={{ width: 181 }}
         variant="contained"
@@ -167,8 +195,8 @@ const ServerCustomer = () => {
         id="Biscuits"
       >
         Biscuit
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton8"
         sx={{ width: 181 }}
         variant="contained"
@@ -178,8 +206,8 @@ const ServerCustomer = () => {
         id="SpicyChickenSandwich"
       >
         Spicy Chicken Sandwich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton9"
         sx={{ width: 181 }}
         variant="contained"
@@ -189,8 +217,8 @@ const ServerCustomer = () => {
         id="GrilledChickenClub"
       >
         Grilled Chicken Club
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton10"
         sx={{ width: 181 }}
         variant="contained"
@@ -199,8 +227,8 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.GrilledChickenSandwich)}
       >
         Grilled Chicken Sandwhich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton11"
         sx={{ width: 181 }}
         variant="contained"
@@ -209,28 +237,51 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.ChickenMinis4)}
       >
         Chick-n-Minis
-      </MuiButton>
-      <img className="image-3-icon" alt="" src="../image-3@2x.png" />
-      <img className="image-6-icon" alt="" src="../image-6@2x.png" />
-      <img className="image-9-icon" alt="" src="../image-9@2x.png" />
-      <img className="image-12-icon" alt="" src="../image-12@2x.png" />
-      <img className="image-4-icon" alt="" src="../image-4@2x.png" />
-      <img className="image-7-icon" alt="" src="../image-6@2x.png" />
-      <img className="image-10-icon" alt="" src="../image-9@2x.png" />
-      <img className="image-13-icon" alt="" src="../image-13@2x.png" />
-      <img className="image-5-icon" alt="" src="../image-5@2x.png" />
-      <img className="image-8-icon" alt="" src="../image-8@2x.png" />
-      <img className="image-11-icon" alt="" src="../image-11@2x.png" />
-      <img className="image-14-icon" alt="" src="../image-14@2x.png" />
-      <nav className="frame-nav1" id="Navbar">
-        <img className="image-2-icon" alt="" src="../image2@3x.png" />
-        <Link className="in-store-location1" to="/">
+      &lt;/MuiButton>
+      &lt;img className="image-3-icon" alt="" src="../image-3@2x.png" />
+      &lt;img className="image-6-icon" alt="" src="../image-6@2x.png" />
+      &lt;img className="image-9-icon" alt="" src="../image-9@2x.png" />
+      &lt;img className="image-12-icon" alt="" src="../image-12@2x.png" />
+      &lt;img className="image-4-icon" alt="" src="../image-4@2x.png" />
+      &lt;img className="image-7-icon" alt="" src="../image-6@2x.png" />
+      &lt;img className="image-10-icon" alt="" src="../image-9@2x.png" />
+      &lt;img className="image-13-icon" alt="" src="../image-13@2x.png" />
+      &lt;img className="image-5-icon" alt="" src="../image-5@2x.png" />
+      &lt;img className="image-8-icon" alt="" src="../image-8@2x.png" />
+      &lt;img className="image-11-icon" alt="" src="../image-11@2x.png" />
+      &lt;img className="image-14-icon" alt="" src="../image-14@2x.png" />
+      &lt;nav className="frame-nav1" id="Navbar">
+        &lt;img className="image-2-icon" alt="" src="../image2@3x.png" />
+        &lt;Link className="in-store-location1" to="/">
           In store Location
-        </Link>
-        <Link className="engineering-a" to="/manager" />
-      </nav>
-    </nav>
+        &lt;/Link>
+        &lt;Link className="engineering-a" to="/manager" />
+      &lt;/nav>
+    &lt;/nav>
   );
 };
 
 export default ServerCustomer;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#InStore">InStore</a></li><li><a href="global.html#Manager">Manager</a></li><li><a href="global.html#ServerCustomer">ServerCustomer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 06 2022 16:12:31 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import "./InStore.css";
 
+/**
+ * InStore is a component that shows a link to the map with the location of the store.
+ * 
+ * 
+ * @returns {JSX.Element} a `div` element containing the `Link` and `iframe` elements.
+ */
+
+
 const InStore = () => {
   return (
     <div className="in-store-div">
