@@ -10,6 +10,7 @@ import ServerCustomer from "./pages/ServerCustomer";
 import { useEffect } from "react";
 
 function App() {
+  
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
