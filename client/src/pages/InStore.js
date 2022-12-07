@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import "./InStore.css";
 
 const InStore = () => {
+
+let count = 0;
+const googleTranslateElementInit = () => {
+if(count === 0){
+  console.log("HERE");
+    new window.google.translate.TranslateElement({ pageLanguage: 'en', layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT }, 'google_translate_element')
+}
+count++;
+}
+useEffect(() => {
+var addScript = document.createElement('script');
+  addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+}, [])
+
   return (
     <div className="in-store-div">
+      <div id = "google_translate_element"></div>
       <Link className="image-2" to="/desktop-1" />
       <div className="find-us-in-store">Find Us In Store!</div>
       <iframe
