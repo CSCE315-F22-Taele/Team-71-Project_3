@@ -1,10 +1,13 @@
 import { TextField, Button, Button as MuiButton } from "@mui/material";
-import { Textarea } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { propNames, Textarea } from "@chakra-ui/react";
+import { Link ,useNavigate  } from "react-router-dom";
 import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import jwt_decode from "jwt-decode";
 
 import "./ServerCustomer.css";
 import * as menuItems from './MenuItems.js'
+
 const ServerCustomer = () => {
 
   function purchaseItem(item){
@@ -13,10 +16,44 @@ const ServerCustomer = () => {
       this.setState({ total: res.data });
     }).catch((error) => {console.log(error.response)});
   }
+  var manager = false;
+  const nav = useNavigate();
  
+  function verifyLogin(){
+    if(manager == true){
+      nav("/manager")
+    }
+  }
+
+  function handleCallbackResponse(response){
+    console.log(response.credential);
+    var obj = jwt_decode(response.credential)
+    console.log(obj.email)
+    if(obj.email == "r25ohit@gmail.com"){
+      manager = true
+    }
+    return obj.email
+  }
+  
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id: "938080702541-vjmqqp8oorgabfcv8314003chie8j7qe.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      {theme: "outline", size: "large"}
+    );
+  }, []);
+
+
   return (
+
     <nav className="servercustomer-nav">
       <section className="frame-section" id="cart">
+      <div id = "signInDiv"></div>
+
         <div className="your-cart-div">Your Cart</div>
         <img
           className="icon-shopping-cart"
@@ -212,7 +249,13 @@ const ServerCustomer = () => {
         <Link className="in-store-location1" to="/">
           In store Location
         </Link>
-        <Link className="engineering-a" to="/manager" />
+        <MuiButton 
+          className="engineering-a" 
+          onClick={() => verifyLogin()}
+
+        >
+
+        </MuiButton>
       </nav>
     </nav>
   );
