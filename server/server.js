@@ -130,24 +130,83 @@ app.get('/viewInventory', (req, res) => {
 
 });
 
-app.get('/viewSalesHistory', (req, res) => {
-    sales = []
+app.get('/getDates', (req, res) => {
+    dates = []
     pool
-        .query('SELECT * FROM saleshistory3;')
+        .query('SELECT date FROM saleshistory3;')
         .then(query_res => {
             for (let i = 0; i < query_res.rowCount; i++){
-                sales.push(query_res.rows[i]);
+                dates.push(query_res.rows[i]);
             }
-            const data = {sales: sales};
-            console.log(sales);
-            res.send(sales)
+            const data = {dates: dates};
+            //console.log(dates);
+            res.send(dates)
             //res.render('inventory_name', data);
         });
         
 
 });
 
+<<<<<<< HEAD
 app.listen(process.env.PORT  || port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+=======
+app.post('/filteredDates', (req, res) => {
+    dates = []
+    let postQuery = "SELECT * from saleshistory3 where ";
+    for(let i = 0; i < req.body.date.length;i++){
+        postQuery += "date = " + "'" + req.body.date[i] + "' "
+        if(i != req.body.date.length - 1){
+            postQuery += "or " 
+        }
+    }
+    pool
+        .query(postQuery)
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++){
+                dates.push(query_res.rows[i]);
+            }
+            const data = {dates: dates};
+            console.log(dates);
+            res.send(dates)
+            //res.render('inventory_name', data);
+        });
+    
+    console.log(dates)
 });
 
+app.get('/restockReport', (req, res) => {
+    inventory = []
+    pool
+        .query('SELECT * from inventory where cast(inventory_count as decimal)/cast(inventory_original as decimal) < 0.65;')
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++){
+                inventory.push(query_res.rows[i]);
+            }
+            const data = {inventory: inventory};
+            res.send(inventory)
+        });
+
+});
+
+app.get('/excessReport', (req, res) => {
+    inventory = []
+    pool
+        .query('SELECT * from inventory where cast(inventory_count as decimal)/cast(inventory_original as decimal) > 0.9;')
+        .then(query_res => {
+            for (let i = 0; i < query_res.rowCount; i++){
+                inventory.push(query_res.rows[i]);
+            }
+            const data = {inventory: inventory};
+            res.send(inventory)
+        });
+});
+
+/*
+app.listen(port, () => {
+>>>>>>> 7ae44212ebf87cb9ac84d0c4fde487e63c60b8b4
+    console.log(`Example app listening at http://localhost:${port}`);
+});
+*/
+app.listen(process.env.PORT || port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
