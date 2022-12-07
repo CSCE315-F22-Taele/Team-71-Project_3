@@ -1,43 +1,48 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import jwt_decode from "jwt-decode";
 import "./InStore.css";
 
-const InStore = () => {
+let obj = ""
+function InStore(){
+  let count = 0;
+  const googleTranslateElementInit = () => {
+  if(count === 0){
+    console.log("HERE");
+      new window.google.translate.TranslateElement({ pageLanguage: 'en', layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT }, 'google_translate_element')
+    }
+    count++;
+  }
+  useEffect(() => {
+  var addScript = document.createElement('script');
+    addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+      document.body.appendChild(addScript);
+      window.googleTranslateElementInit = googleTranslateElementInit;
+  }, [])
 
-let count = 0;
-const googleTranslateElementInit = () => {
-if(count === 0){
-  console.log("HERE");
-    new window.google.translate.TranslateElement({ pageLanguage: 'en', layout: window.google.translate.TranslateElement.FloatPosition.TOP_LEFT }, 'google_translate_element')
-}
-count++;
-}
-useEffect(() => {
-var addScript = document.createElement('script');
-  addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-}, [])
+  function handleCallbackResponse(response){
+    console.log(response.credential);
+    obj = jwt_decode(response.credential)
+    console.log(obj.email)
+    
+    return obj.email
+  }
+  
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id: "938080702541-vjmqqp8oorgabfcv8314003chie8j7qe.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
 
-function handleCallbackResponse(response){
-  console.log("Token")
-}
-
-useEffect(() => {
-  google.accounts.id.initialize({
-    client_id: "938080702541-vjmqqp8oorgabfcv8314003chie8j7qe.apps.googleusercontent.com",
-    callback: handleCallbackResponse
-  });
-
-  google.accounts.id.renderButton(
-    document.getElementById("signInDiv"),
-    {theme: "outline", size: "large"}
-  );
-}, []);
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      {theme: "outline", size: "large"}
+    );
+  }, []);
 
 
-  return (
-    <div className="in-store-div">
+  return (    
+      <div className="in-store-div">
       <div id = "google_translate_element"></div>
       <div id = "signInDiv"></div>
       <Link className="image-2" to="/desktop-1" />
@@ -48,6 +53,7 @@ useEffect(() => {
       />
     </div>
   );
+
 };
 
 export default InStore;

@@ -147,9 +147,6 @@ app.get('/getDates', (req, res) => {
 
 });
 
-<<<<<<< HEAD
-app.listen(process.env.PORT  || port, () => {
-=======
 app.post('/filteredDates', (req, res) => {
     dates = []
     let postQuery = "SELECT * from saleshistory3 where ";
@@ -203,7 +200,6 @@ app.get('/excessReport', (req, res) => {
 
 /*
 app.listen(port, () => {
->>>>>>> 7ae44212ebf87cb9ac84d0c4fde487e63c60b8b4
     console.log(`Example app listening at http://localhost:${port}`);
 });
 */
