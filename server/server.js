@@ -174,7 +174,7 @@ app.post('/filteredDates', (req, res) => {
 app.get('/restockReport', (req, res) => {
     inventory = []
     pool
-        .query('SELECT * from inventory where cast(inventory_count as decimal)/cast(inventory_original as decimal) > 0.65;')
+        .query('SELECT * from inventory where cast(inventory_count as decimal)/cast(inventory_original as decimal) < 0.65;')
         .then(query_res => {
             for (let i = 0; i < query_res.rowCount; i++){
                 inventory.push(query_res.rows[i]);
@@ -198,8 +198,11 @@ app.get('/excessReport', (req, res) => {
         });
 });
 
-
+/*
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
-
+*/
+app.listen(process.env.PORT || port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
