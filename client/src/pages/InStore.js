@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import jwt_decode from "jwt-decode";
 import "./InStore.css";
-
-/**
- * InStore is a component that shows a link to the map with the location of the store.
- * 
- * 
- * @returns {JSX.Element} a `div` element containing the `Link` and `iframe` elements.
- */
-
 
 const InStore = () => {
   return (
@@ -20,6 +14,7 @@ const InStore = () => {
       />
     </div>
   );
+
 };
 
 export default InStore;

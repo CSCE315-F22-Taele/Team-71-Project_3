@@ -1,19 +1,38 @@
-import { TextField, Button, Button as MuiButton } from "@mui/material";
-import { propNames, Textarea } from "@chakra-ui/react";
-import { Link ,useNavigate  } from "react-router-dom";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ServerCustomer.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ServerCustomer.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { TextField, Button, Button as MuiButton } from "@mui/material";
+import { Textarea } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import React, { useState, useEffect } from 'react';
-import jwt_decode from "jwt-decode";
 
 import "./ServerCustomer.css";
-<<<<<<< HEAD
-import * as menuItems from "./MenuItems.js";
-=======
 import * as menuItems from './MenuItems.js'
-
-const ServerCustomer = () => {
->>>>>>> 789a2bbcc5982fa1822eccbe6b098b07c7f576ca
-
 /**
  * This code defines a React component named ServerCustomer. The component contains a number of Button components from the @mui/material library,
  * each of which represents a menu item that can be purchased. When one of these buttons is clicked,
@@ -29,68 +48,32 @@ const ServerCustomer = () => {
  *
  */
 const ServerCustomer = () => {
-  function purchaseItem(item) {
-    console.log(item.body);
-    axios
-      .post(
-        "http://localhost:3001/subtractIngredientAndAddToHistory",
-        item.body
-      )
-      .then((res) => {
-        this.setState({ total: res.data });
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+
+  /**
+   * This function sends a HTTP POST request to a server at the URL http://localhost:3001/subtractIngredientAndAddToHistory 
+   * with the body property of the item parameter as the request body. 
+   * If the request is successful, it updates the total state with the response data. 
+   * If the request fails, it logs the error response to the console.
+   * @param {*} item 
+   */
+
+  function purchaseItem(item){
+    console.log(item.body)
+    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',item.body).then((res) => {
+      this.setState({ total: res.data });
+    }).catch((error) => {console.log(error.response)});
   }
-<<<<<<< HEAD
-=======
-  var manager = false;
-  const nav = useNavigate();
  
-  function verifyLogin(){
-    if(manager == true){
-      nav("/manager")
-    }
-  }
-
-  function handleCallbackResponse(response){
-    console.log(response.credential);
-    var obj = jwt_decode(response.credential)
-    console.log(obj.email)
-    if(obj.email == "r25ohit@gmail.com"){
-      manager = true
-    }
-    return obj.email
-  }
-  
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id: "938080702541-vjmqqp8oorgabfcv8314003chie8j7qe.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
-
-    google.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-      {theme: "outline", size: "large"}
-    );
-  }, []);
-
->>>>>>> 789a2bbcc5982fa1822eccbe6b098b07c7f576ca
-
   return (
-
-    <nav className="servercustomer-nav">
-      <section className="frame-section" id="cart">
-      <div id = "signInDiv"></div>
-
-        <div className="your-cart-div">Your Cart</div>
-        <img
+    &lt;nav className="servercustomer-nav">
+      &lt;section className="frame-section" id="cart">
+        &lt;div className="your-cart-div">Your Cart&lt;/div>
+        &lt;img
           className="icon-shopping-cart"
           alt=""
           src="../-icon-shopping-cart.svg"
         />
-        <TextField
+        &lt;TextField
           className="text-areaoutlined-textfield"
           sx={{ width: 138 }}
           color="primary"
@@ -101,141 +84,147 @@ const ServerCustomer = () => {
           margin="none"
           disabled
         />
-        <div className="total-cost-div">{`Total Cost: `}</div>
-        <Button
+        &lt;div className="total-cost-div">{`Total Cost: `}&lt;/div>
+        &lt;Button
           className="buttoncontained-text2"
           sx={{ width: 216 }}
           variant="contained"
           color="success"
         >
           Place Order
-        </Button>
-        <Button
+        &lt;/Button>
+        &lt;Button
           className="buttoncontained-text3"
           sx={{ width: 161 }}
           variant="contained"
           color="error"
         >
           Cancel Order
-        </Button>
-        <Textarea
+        &lt;/Button>
+        &lt;Textarea
           className="text-areaoutline-textarea1"
           variant="outline"
           w="285px"
           isReadOnly
         />
-      </section>
-      <MuiButton
+      &lt;/section>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
         onClick={() => purchaseItem(menuItems.ChickenSandwich)}
-        id="ChickenSandwich"
+        id = "ChickenSandwich"
       >
         Chicken Sandwhich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton1"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
-        id="Nuggets8"
+        id = "Nuggets8"
         onClick={() => purchaseItem(menuItems.Nuggets8)}
       >
         8ct Nggets
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton2"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
-        id="Strips3"
+        id = "Strips3"
         onClick={() => purchaseItem(menuItems.Strips3)}
+
+
       >
         Chicken Strips 3ct
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton3"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
-        id="GrilledChickenWrap"
+        id = "GrilledChickenWrap"
         onClick={() => purchaseItem(menuItems.GrilledChickenWrap)}
       >
         Grilled Chicken Cool Wrap
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton4"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
-        id="DeluxeChickenSandwich"
+        id = "DeluxeChickenSandwich"
         onClick={() => purchaseItem(menuItems.DeluxeChickenSandwich)}
+
       >
         DLUX Chicken Sandwhich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton5"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
-        id="Nuggets12"
+        id = "Nuggets12"
         onClick={() => purchaseItem(menuItems.Nuggets12)}
+
       >
         12c Nuggets
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton6"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
         onClick={() => purchaseItem(menuItems.Strips4)}
-        id="Strips4"
+        id = "Strips4"
+        
       >
         Chicken Strips 4ct
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton7"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
         onClick={() => purchaseItem(menuItems.Biscuits)}
-        id="Biscuits"
+        id = "Biscuits"
       >
         Biscuit
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton8"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
         onClick={() => purchaseItem(menuItems.SpicyChickenSandwich)}
-        id="SpicyChickenSandwich"
+        id = "SpicyChickenSandwich" 
       >
         Spicy Chicken Sandwich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton9"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
         size="large"
         onClick={() => purchaseItem(menuItems.GrilledChickenClub)}
-        id="GrilledChickenClub"
+
+        id = "GrilledChickenClub"
       >
         Grilled Chicken Club
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton10"
         sx={{ width: 181 }}
         variant="contained"
@@ -244,44 +233,62 @@ const ServerCustomer = () => {
         onClick={() => purchaseItem(menuItems.GrilledChickenSandwich)}
       >
         Grilled Chicken Sandwhich
-      </MuiButton>
-      <MuiButton
+      &lt;/MuiButton>
+      &lt;MuiButton
         className="buttoncontained-text-muibutton11"
         sx={{ width: 181 }}
         variant="contained"
         color="primary"
-        id="ChickenMinis4"
+        id = "ChickenMinis4"
         onClick={() => purchaseItem(menuItems.ChickenMinis4)}
+
       >
         Chick-n-Minis
-      </MuiButton>
-      <img className="image-3-icon" alt="" src="../image-3@2x.png" />
-      <img className="image-6-icon" alt="" src="../image-6@2x.png" />
-      <img className="image-9-icon" alt="" src="../image-9@2x.png" />
-      <img className="image-12-icon" alt="" src="../image-12@2x.png" />
-      <img className="image-4-icon" alt="" src="../image-4@2x.png" />
-      <img className="image-7-icon" alt="" src="../image-6@2x.png" />
-      <img className="image-10-icon" alt="" src="../image-9@2x.png" />
-      <img className="image-13-icon" alt="" src="../image-13@2x.png" />
-      <img className="image-5-icon" alt="" src="../image-5@2x.png" />
-      <img className="image-8-icon" alt="" src="../image-8@2x.png" />
-      <img className="image-11-icon" alt="" src="../image-11@2x.png" />
-      <img className="image-14-icon" alt="" src="../image-14@2x.png" />
-      <nav className="frame-nav1" id="Navbar">
-        <img className="image-2-icon" alt="" src="../image2@3x.png" />
-        <Link className="in-store-location1" to="/">
+      &lt;/MuiButton>
+      &lt;img className="image-3-icon" alt="" src="../image-3@2x.png" />
+      &lt;img className="image-6-icon" alt="" src="../image-6@2x.png" />
+      &lt;img className="image-9-icon" alt="" src="../image-9@2x.png" />
+      &lt;img className="image-12-icon" alt="" src="../image-12@2x.png" />
+      &lt;img className="image-4-icon" alt="" src="../image-4@2x.png" />
+      &lt;img className="image-7-icon" alt="" src="../image-6@2x.png" />
+      &lt;img className="image-10-icon" alt="" src="../image-9@2x.png" />
+      &lt;img className="image-13-icon" alt="" src="../image-13@2x.png" />
+      &lt;img className="image-5-icon" alt="" src="../image-5@2x.png" />
+      &lt;img className="image-8-icon" alt="" src="../image-8@2x.png" />
+      &lt;img className="image-11-icon" alt="" src="../image-11@2x.png" />
+      &lt;img className="image-14-icon" alt="" src="../image-14@2x.png" />
+      &lt;nav className="frame-nav1" id="Navbar">
+        &lt;img className="image-2-icon" alt="" src="../image2@3x.png" />
+        &lt;Link className="in-store-location1" to="/">
           In store Location
-        </Link>
-        <MuiButton 
-          className="engineering-a" 
-          onClick={() => verifyLogin()}
-
-        >
-
-        </MuiButton>
-      </nav>
-    </nav>
+        &lt;/Link>
+        &lt;Link className="engineering-a" to="/manager" />
+      &lt;/nav>
+    &lt;/nav>
   );
 };
 
 export default ServerCustomer;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#InStore">InStore</a></li><li><a href="global.html#Manager">Manager</a></li><li><a href="global.html#ServerCustomer">ServerCustomer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Dec 06 2022 18:52:04 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
