@@ -20,6 +20,7 @@
   display: inline-block;
 }
 .frame-iframe {
+  
   border: 0;
   position: absolute;
   top: 300px;
@@ -38,4 +39,10 @@
   font-size: var(--font-size-lg);
   color: var(--color-black);
   font-family: var(--font-roboto);
+}
+
+.button {
+  position: absolute;
+  top: 500px; 
+  left: 100px;
 }
