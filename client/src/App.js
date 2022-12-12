@@ -57,7 +57,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<InStore />} />
+      <Route path="/" element={<ServerCustomer />} />
 
       <Route path="/manager" element={<Manager />} />
 
