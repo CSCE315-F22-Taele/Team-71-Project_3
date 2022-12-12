@@ -17,7 +17,7 @@ const Manager = () => {
   //console.log(menuItems.ChickenSandwich)
 
   const getInventoryOnClick = () => {
-    axios.get('http://localhost:3001/viewInventory').then(function(response){
+    axios.get('https://chick-fil-a.onrender.com/viewInventory').then(function(response){
       var display = ""
       for(let i = 0; i < response.data.length; i++){
         display += response.data[i].inventory_name + " " + response.data[i].inventory_count + " " + response.data[i].inventory_original + '\n';
@@ -26,7 +26,7 @@ const Manager = () => {
     });
   };
   const getRestockReport = () => {
-    axios.get('http://localhost:3001/restockReport').then(function(response){
+    axios.get('https://chick-fil-a.onrender.com/restockReport').then(function(response){
       var display = ""
       for(let i = 0; i < response.data.length; i++){
         display += response.data[i].inventory_name + " " + response.data[i].inventory_count + " " + response.data[i].inventory_original + '\n';
@@ -36,7 +36,7 @@ const Manager = () => {
   };
 
   const getExcessReport = () => {
-    axios.get('http://localhost:3001/excessReport').then(function(response){
+    axios.get('https://chick-fil-a.onrender.com/excessReport').then(function(response){
       var display = ""
       for(let i = 0; i < response.data.length; i++){
         display += response.data[i].inventory_name + " " + response.data[i].inventory_count + " " + response.data[i].inventory_original + '\n';
@@ -83,7 +83,7 @@ const Manager = () => {
     let value; 
     let datesBetween = []
 
-    axios.get('http://localhost:3001/getDates').then(function(response){
+    axios.get('https://chick-fil-a.onrender.com/getDates').then(function(response){
       let date1 = document.getElementById('date1').value
       let date2 = document.getElementById('date2').value
       datesBetween = []
@@ -103,7 +103,7 @@ const Manager = () => {
               'date' : datesBetween
               }
       };
-      axios.post('http://localhost:3001/filteredDates',datesToUse.body).then(function(response){
+      axios.post('https://chick-fil-a.onrender.com/filteredDates',datesToUse.body).then(function(response){
         var display = ""
         for (let i = 0; i < response.data.length; i++){
           display += response.data[i].item + " " + response.data[i].cost + " " + response.data[i].date + "\n";
@@ -144,7 +144,7 @@ const Manager = () => {
     };
     console.log(document.getElementById('ingredientAmount').value)
 
-    axios.post('http://localhost:3001/addIngredient',addIngredient.body).then((res) => {
+    axios.post('https://chick-fil-a.onrender.com/addIngredient',addIngredient.body).then((res) => {
       this.setState({ total: res.data });
     }).catch((error) => {console.log(error.response)});
 

@@ -12,7 +12,7 @@ const ServerCustomer = () => {
 
   function purchaseItem(item){
     console.log(item.body)
-    axios.post('http://localhost:3001/subtractIngredientAndAddToHistory',item.body).then((res) => {
+    axios.post('https://chick-fil-a.onrender.com/subtractIngredientAndAddToHistory',item.body).then((res) => {
       this.setState({ total: res.data });
     }).catch((error) => {console.log(error.response)});
   }
