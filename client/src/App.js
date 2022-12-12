@@ -61,7 +61,7 @@ function App() {
 
       <Route path="/manager" element={<Manager />} />
 
-      <Route path="/desktop-1" element={<ServerCustomer />} />
+      <Route path="/Server" element={<ServerCustomer />} />
       <Route path="/desktop-2" element={<Manager />} />
 
     </Routes>
