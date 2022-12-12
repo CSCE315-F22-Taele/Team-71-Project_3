@@ -156,7 +156,7 @@ const Manager = () => {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <nav className="manager-nav">
         <nav className="frame-nav" id="Navbar">
-          <Link className="image-21" to="/Server" />
+          <Link className="image-21" to="/Link To Server" />
           <Link className="in-store-location" to="/">
             In store Location
           </Link>

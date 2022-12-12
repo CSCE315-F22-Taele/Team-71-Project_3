@@ -45,7 +45,7 @@ function InStore(){
       <div className="in-store-div">
       <div id = "google_translate_element"></div>
       <div id = "signInDiv"></div>
-      <Link className="image-2" to="/Server" />
+      <Link className="image-2" to="/Link To Server" />
       <div className="find-us-in-store">Find Us In Store!</div>
       <iframe
         className="frame-iframe"

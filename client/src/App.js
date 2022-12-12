@@ -35,7 +35,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/desktop-1":
+      case "/Link To Server":
         title = "";
         metaDescription = "";
         break;
@@ -61,7 +61,7 @@ function App() {
 
       <Route path="/manager" element={<Manager />} />
 
-      <Route path="/Server" element={<ServerCustomer />} />
+      <Route path="/Link To Server" element={<ServerCustomer />} />
       <Route path="/desktop-2" element={<Manager />} />
 
     </Routes>
