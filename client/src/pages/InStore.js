@@ -27,7 +27,7 @@ function InStore(){
     
     return obj.email
   }
-  
+  /*
   useEffect(() => {
     google.accounts.id.initialize({
       client_id: "938080702541-vjmqqp8oorgabfcv8314003chie8j7qe.apps.googleusercontent.com",
@@ -39,7 +39,7 @@ function InStore(){
       {theme: "outline", size: "large"}
     );
   }, []);
-
+  */
 
   return (    
       <div className="in-store-div">
